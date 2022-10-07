@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-//Détermine et renvoit la taille de la 
+
 int getTailleHadamard(int nbUti){
     int i = 1;
     while(nbUti>pow(2,i))
@@ -12,20 +12,10 @@ int getTailleHadamard(int nbUti){
     return pow(2,i);
 }
 
-//Renvois une matrice hadamard d'une taille donnée
+
 int ** hadamard(int taille){
-    int ** matrice = malloc(taille * sizeof(int*));
-    if( matrice == NULL ){
-     fprintf(stderr,"Allocation impossible");
-     exit(EXIT_FAILURE);
-    }
-    for (int i = 0;i<taille;i++){
-        matrice[i] = malloc(taille * sizeof(int));
-        if( matrice[i] == NULL ){
-          fprintf(stderr,"Allocation impossible");
-          exit(EXIT_FAILURE);
-        }
-    }
+
+    int ** matrice = matriceCreer(taille,taille);
 
     matrice[0][0] = 1; // H(0) = 1
     

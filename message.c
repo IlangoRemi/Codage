@@ -2,9 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//Transforme en tableau d'entier une chaine de string
-int * messageToTab(char * message){
-    int tailleMessage = getTailleMessage(message);
+int * messageToTab(char * message,int tailleMessage){
     int * messageTab = malloc(tailleMessage * sizeof(int));
     if( messageTab == NULL ){
      fprintf(stderr,"Allocation impossible");
@@ -16,11 +14,18 @@ int * messageToTab(char * message){
     return messageTab;
 }
 
-//Récupère la taille d'un message string
 int getTailleMessage(char * message){
     int taille = 0;
     while (message[taille] != '\0'){
         taille++;
     }
     return taille;
+}
+
+void freeMessage(char ** message){
+    free((*message));
+}
+
+void freeMessageTab(int ** message){
+    free((*message));
 }

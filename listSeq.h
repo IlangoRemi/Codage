@@ -6,4 +6,14 @@ typedef struct listSeq_s {
     int nbSeq;
 } listSeq_t;
 
-listSeq * listSequenceCreer(int nbSeq);
+//Créer une liste de séquence et initialise ses variables
+listSeq_t * listSequenceCreer(int nbSeq);
+
+//Libère une liste de séquence et ses variables
+void freeListSeq(listSeq_t ** liste);
+
+//Ajoute une séquence à la liste de séquence
+void ajouterSeq(listSeq_t * liste, sequence_t * Seq);
+
+//Affiche toutes les séquences
+void afficherListSeq(listSeq_t * liste);
