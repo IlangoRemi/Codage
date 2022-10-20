@@ -2,7 +2,7 @@
 
 typedef struct listSeq_s listSeq;
 typedef struct listSeq_s {
-    sequence_t * listeSeq;
+    sequence_t * (*listeSeq);
     int nbSeq;
 } listSeq_t;
 
@@ -17,3 +17,6 @@ void ajouterSeq(listSeq_t * liste, sequence_t * Seq);
 
 //Affiche toutes les séquences
 void afficherListSeq(listSeq_t * liste);
+
+//Calcul le codage final de toutes les séquences
+sequence_t * calculCodage(listSeq_t * liste);

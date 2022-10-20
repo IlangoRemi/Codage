@@ -15,7 +15,7 @@ void afficherMatrice(int ** matrice, int tailleX, int tailleY){
 }
 
 void freeMatrice(int ** matrice,int tailleX){
-    for (int i = 0; i< tailleX; i++){
+    for (int i = 0; i < tailleX; i++){
         free(matrice[i]);
     }
     free(matrice);
@@ -35,4 +35,18 @@ int ** matriceCreer(int tailleX, int tailleY){
         }
     }
     return matrice;
+}
+
+int * recupererLigneMatrice(int ** matrice, int ligne,int tailleY){
+    int * ligneMatrice = malloc(tailleY * sizeof(int));
+    for(int i=0;i<tailleY;i++){
+        ligneMatrice[i] = matrice[ligne][i];
+    }
+    return ligneMatrice;
+}
+
+void afficherLigneMatrice(int * ligneMatrice,int tailleY){
+    for(int i=0;i<tailleY;i++){
+        printf("%2i ",ligneMatrice[i]);
+    }
 }
